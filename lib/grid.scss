@@ -1,0 +1,13 @@
+$error: red;
+
+img {
+  display: block;
+  float: left;
+  width: calc(25% - 20px);
+  margin: 10px;
+}
+
+span {
+  color: $error;
+}
+
