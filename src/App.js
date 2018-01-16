@@ -1,11 +1,9 @@
-import React, { Fragment } from 'react';
+import React, {Fragment} from 'react';
 import ImageInput from '../lib/ImageInput';
 
-const App = () => {
-  return (
-    <Fragment>
-      <ImageInput />
-    </Fragment>
-  );
-};
+const App = () => (
+  <Fragment>
+    <ImageInput />
+  </Fragment>
+);
 export default App;

@@ -7,7 +7,7 @@ const extractSass = new ExtractTextPlugin({
   disable: process.env.NODE_ENV === 'development'
 });
 
-let config = {
+const config = {
   entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: path.resolve(__dirname, './public'),

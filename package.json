@@ -27,6 +27,7 @@
     "jest": "^22.1.1",
     "lint-staged": "^6.0.0",
     "node-sass": "^4.7.2",
+    "npm-run-all": "^4.1.2",
     "prettier": "^1.10.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -37,14 +38,21 @@
     "webpack-dev-server": "^2.10.1"
   },
   "scripts": {
-    "build": "babel ./lib -d build",
+    "build": "npm-run-all build-css build-js",
+    "build-js": "babel ./lib -d build",
+    "build-css": "node-sass lib/ -o lib/",
+    "bundle": "webpack",
+    "format": "prettier --no-bracket-spacing --single-quote --write '{lib,src}/*.{scss,js}'",
+    "lint": "eslint --quiet src lib --ext .js",
     "start": "webpack-dev-server",
-    "test": "jest --watch test",
-    "lint": "eslint --quiet src --ext .js",
-    "format":
-      "prettier --no-bracket-spacing --single-quote --write 'lib/*.{scss,js}'"
+    "start-js": "react-scripts start",
+    "test": "jest --watch test/**/*.js",
+    "watch-css": "npm run build-css && node-sass lib/ -o lib/ --watch"
   },
   "lint-staged": {
-    "*.js": ["npm run format", "git add"]
+    "*.js": [
+      "npm run format",
+      "git add"
+    ]
   }
 }
