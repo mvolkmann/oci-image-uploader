@@ -1,13 +1,21 @@
 $error: red;
 
 img {
-  display: block;
-  float: left;
-  width: calc(25% - 20px);
+  display: inline-block;
   margin: 10px;
+  height: 100px;
+  width: auto;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-span {
+.errorMessage {
   color: $error;
 }
 
+.submitButton {
+  &:hover {
+    cursor: pointer;
+  }
+}
